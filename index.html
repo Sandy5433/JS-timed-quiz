@@ -12,14 +12,22 @@
 
     <section>
       <div id="scores">View Highscores</div>
-      <div id="time">Time: 75</div>
+      <div class="time">Time: 75</div>
     </section>
 
     <main>
       <h1>Coding Quiz Challenge</h1>
       <p>Try to answer the following code-related questions within the time limit. Keep in mind that incorrect answers will penalize your score/time by ten seconds!</p>
-      <button id="start">Start Quiz</button>
+      <button class="start-button">Start Quiz</button>
     </main>
+
+    <section class="end-quiz">
+      <h2>All done!</h2>
+      <p>Your final score is </p>
+      <label for="user-initial">Enter initials: </label>
+      <input type="text" id="user-initial">
+      <button>Submit</button>
+    </section>
 
     <script src="./assets/js/script.js"></script>
 

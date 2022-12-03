@@ -1,8 +1,9 @@
 var startButton = document.querySelector(".start-button");
 var questionDiv = document.querySelector(".question");
-var startDiv = document.querySelector(".start");
+var quizCoverPg = document.querySelector(".cover-page");
 var endQuizDiv = document.querySelector(".end-quiz");
 var feedbackEl = document.querySelector(".feedback");
+var userScore = document.querySelector(".user-score")
 
 var qTitle = document.querySelector(".question-title");
 var choice1 = document.querySelector("#choice1");
@@ -16,9 +17,9 @@ var timerCount = 75;
 
 var questionIndex = 0;
 
-// Attach event listener to start button to call startQuiz function on click
+// run fn startQuiz when startButton is clicked
 startButton.addEventListener("click", startQuiz);
-// Attach event listener to choices to call anserClick function on click
+// run fn answerClick when any choices are clicked
 choice1.addEventListener("click", answerClick)
 choice2.addEventListener("click", answerClick)
 choice3.addEventListener("click", answerClick)
@@ -27,12 +28,13 @@ choice4.addEventListener("click", answerClick)
 //The startQuiz function is called when the start button is clicked
 function startQuiz() {
   questionDiv.style.display = "block";
-  startDiv.style.display = "none";
+  quizCoverPg.style.display = "none";
 
   displayQuestion()
   startTimer()
 }
 
+//Replacing the questions content in html with the array of questions in js
 function displayQuestion () {
   qTitle.textContent = questions[questionIndex].title;
   choice1.textContent = questions[questionIndex].choices[0]
@@ -43,7 +45,9 @@ function displayQuestion () {
 
 //When user click on a choice, compare userAnswer to correctAnswer 
 function answerClick (event) {
+//Retrieve answer content from the array of questions
   var correctAnswer = questions[questionIndex].answer;
+//Store user's choice as variable userAnswer
   var userAnswer = event.target.textContent;
 
   console.log(userAnswer + " vs. " + correctAnswer)
@@ -61,18 +65,20 @@ function answerClick (event) {
     timerCount -= 15;
   }
 
-  if (timerCount =< 0) {
+  if (timerCount < 0 || questionIndex > 4) {
     endQuiz();
   }
   else {
-  // questionIndex = currentIndex + 1;
+  // questionIndex = questionIndex + 1;
   questionIndex++;
   displayQuestion();
   }
 }
 
 function endQuiz () {
-
+  questionDiv.style.display = "none";
+  endQuizDiv.style.display = "block";
+  userScore.textContent = "?"
 
 
 
@@ -86,6 +92,9 @@ function startTimer() {
   }, 1000)
 }
  
+function stopTimer() {
+
+}
 
 //Array of questions in the quiz
 var questions = [

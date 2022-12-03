@@ -64,36 +64,32 @@ function answerClick (event) {
     // timerCount = timerCount - 15;
     timerCount -= 15;
   }
-
+  questionIndex++;
   if (timerCount < 0 || questionIndex > 4) {
     endQuiz();
   }
   else {
-  // questionIndex = questionIndex + 1;
-  questionIndex++;
+   
   displayQuestion();
   }
 }
-
+//hide questions and display endQuiz pg when endQuiz fn is called
 function endQuiz () {
   questionDiv.style.display = "none";
   endQuizDiv.style.display = "block";
-  userScore.textContent = "?"
-
-
-
+  clearInterval(countDown);
+  userScore.textContent = timerCount
 }
 
+//define variable time remain to decrease by 1 every second
+var countDown = setInterval(function(){
+  timerCount--;
+  timeRemain.textContent = timerCount;
+}, 1000) 
 
+//define function for startTimer
 function startTimer() {
-  setInterval(function(){
-    timerCount--;
-    timeRemain.textContent = timerCount;
-  }, 1000)
-}
- 
-function stopTimer() {
-
+  countDown;  
 }
 
 //Array of questions in the quiz

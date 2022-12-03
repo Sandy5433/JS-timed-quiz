@@ -11,6 +11,25 @@ main {
 }
 
 .end-quiz {
-    display:block;
+    display:none;
     text-align: center;
+}
+
+.question {
+    display: none;
+    flex-direction: column;
+    text-align: center;
+    
+}
+
+.choices {
+    display: block;
+    color: white;
+    background-color: purple;
+    margin: 5px;
+}
+
+.feedback {
+    display: none;
+    border-top: solid;
 }

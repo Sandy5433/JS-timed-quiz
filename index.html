@@ -11,15 +11,28 @@
   <body>
 
     <section>
-      <div id="scores">View Highscores</div>
-      <div class="time">Time: 75</div>
+      <div id="scores">
+        <a href="./hs.html">View Highscores</a>
+      </div>
+      <div>Time: <span class="timer">75</span></div>
+      
     </section>
 
-    <main>
+    <main class="start">
       <h1>Coding Quiz Challenge</h1>
       <p>Try to answer the following code-related questions within the time limit. Keep in mind that incorrect answers will penalize your score/time by ten seconds!</p>
       <button class="start-button">Start Quiz</button>
     </main>
+
+    <section class="question">
+      <h2 class="question-title">This is an example questions</h2>
+      <button class="choices" id="choice1">Option 1</button>
+      <button class="choices" id="choice2">Option 2</button>
+      <button class="choices" id="choice3">Option 3</button>
+      <button class="choices" id="choice4">Option 4</button>
+    </section>
+
+    <p class="feedback">This is answer feedback</p>
 
     <section class="end-quiz">
       <h2>All done!</h2>

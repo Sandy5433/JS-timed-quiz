@@ -6,6 +6,7 @@ var feedbackEl = document.querySelector(".feedback");
 var userScore = document.querySelector(".user-score")
 var userInit = document.querySelector("#user-initial");
 var submitInit = document.querySelector(".submit-init")
+var scoreList = document.querySelector(".score-list")
 
 var qTitle = document.querySelector(".question-title");
 var choice1 = document.querySelector("#choice1");
@@ -14,7 +15,6 @@ var choice3 = document.querySelector("#choice3");
 var choice4 = document.querySelector("#choice4");
 
 var timeRemain = document.querySelector(".timer")
-var contestant = document.querySelector("#user-initial").value
 var timerCount = 75;
 
 var questionIndex = 0;
@@ -94,6 +94,7 @@ function startTimer() {
   countDown;  
 }
 
+//retrieve score & user initial and store in local storage
 submitInit.addEventListener("click", function() {
 
   var scoreRecord = {
@@ -103,6 +104,12 @@ submitInit.addEventListener("click", function() {
   localStorage.setItem("highscore", JSON.stringify(scoreRecord))
 
 });
+
+//paste user inital & their score on Highscores page
+// var savedScore = JSON.parse(localStorage.getItem("highscore"))
+// var scores = document.createElement("li")
+// scores.textContent = savedScore;
+// scoreList.appendChild(scores)
 
 
 //Array of questions in the quiz

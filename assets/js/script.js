@@ -4,6 +4,8 @@ var quizCoverPg = document.querySelector(".cover-page");
 var endQuizDiv = document.querySelector(".end-quiz");
 var feedbackEl = document.querySelector(".feedback");
 var userScore = document.querySelector(".user-score")
+var userInit = document.querySelector("#user-initial");
+var submitInit = document.querySelector(".submit-init")
 
 var qTitle = document.querySelector(".question-title");
 var choice1 = document.querySelector("#choice1");
@@ -91,6 +93,17 @@ var countDown = setInterval(function(){
 function startTimer() {
   countDown;  
 }
+
+submitInit.addEventListener("click", function() {
+
+  var scoreRecord = {
+    initial: userInit.value,
+    score: timerCount,
+  };
+  localStorage.setItem("highscore", JSON.stringify(scoreRecord))
+
+});
+
 
 //Array of questions in the quiz
 var questions = [

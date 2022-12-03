@@ -106,11 +106,14 @@ submitInit.addEventListener("click", function() {
 });
 
 //paste user inital & their score on Highscores page
-// var savedScore = JSON.parse(localStorage.getItem("highscore"))
-// var scores = document.createElement("li")
-// scores.textContent = savedScore;
-// scoreList.appendChild(scores)
-
+function printHighScore () {
+  var savedScore = JSON.parse(localStorage.getItem("highscore"))
+  for (var i = 0; i < savedScore.length; i++) {
+  var liTag = document.createElement("li");
+  liTag.textContent = savedScore[i].initial + ": " + savedScore.score;
+  scoreList.appendChild(scores)
+  }
+}
 
 //Array of questions in the quiz
 var questions = [

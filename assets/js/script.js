@@ -28,12 +28,12 @@ choice3.addEventListener("click", answerClick)
 choice4.addEventListener("click", answerClick)
 
 //The startQuiz function is called when the start button is clicked
-function startQuiz() {
+var startQuiz = function() {
   questionDiv.style.display = "block";
   quizCoverPg.style.display = "none";
 
   displayQuestion()
-  startTimer()
+  countDown; 
 }
 
 //Replacing the questions content in html with the array of questions in js
@@ -91,19 +91,29 @@ var countDown = setInterval(function(){
 
 //define function for startTimer
 function startTimer() {
-  countDown;  
+ 
 }
 
 //retrieve score & user initial and store in local storage
 submitInit.addEventListener("click", function() {
 
+ 
+  // var newScore = JSON.stringify(scoreRecord);
+  var prevScore = JSON.parse(localStorage.getItem("allScores"));
+  var pScore = prevScore ?prevScore.score:0
   var scoreRecord = {
-    initial: userInit.value,
+    initial: userInit.value.trim(),
     score: timerCount,
-  };
-  localStorage.setItem("highscore", JSON.stringify(scoreRecord))
+  }; 
+  var scoreArray = [];
+  scoreArray.push(scoreRecord);
+  localStorage.setItem("allScores", JSON.stringify(scoreRecord));
+  
+  
+  // localStorage.setItem("highscore", JSON.stringify(scoreRecord))
   // printHighScore();
 });
+
 
 //paste user inital & their score on Highscores page
 // function printHighScore () {

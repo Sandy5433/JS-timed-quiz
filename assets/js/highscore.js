@@ -1,25 +1,21 @@
 function printHighScore() {
-    var savedScore = JSON.parse(localStorage.getItem("allScores"));
+    var savedScore = {...localStorage};
     var scoreList = document.querySelector(".score-list");
-    console.log(savedScore.initial + ": " + savedScore.score);
-    var liTag = document.createElement("li");
-    liTag.textContent = savedScore.initial + ": " + savedScore.score;
-    var scoreList = document.querySelector(".score-list");
-    console.log(scoreList);
-    scoreList.appendChild(liTag);
-  
+    if(savedScore)
+    {
+      debugger
+      for(var i =0 ;i< Object.keys(savedScore).length; i++)
+      {
+        var initials = Object.keys(savedScore)[i];
+         var score = savedScore[initials];
+        var liTag = document.createElement("li");
+        liTag.textContent = initials + ": " + score;
+        var scoreList = document.querySelector(".score-list");
+        console.log(scoreList);
+        scoreList.appendChild(liTag);
+      }
+    }
   }
-  
+
   printHighScore();
-
-
-// function printHighScore () {
-//   var savedScore = JSON.parse(localStorage.getItem("allScores"))
-//   for (var i = 0; i < savedScore.length; i++) {
-//   var liTag = document.createElement("li");
-//   liTag.textContent = savedScore[i].initial + ": " + savedScore.score;
-//   scoreList.appendChild(liTag)
-//   }
-// }
-
-// printHighScore();
+  

@@ -28,12 +28,22 @@ choice3.addEventListener("click", answerClick)
 choice4.addEventListener("click", answerClick)
 
 //The startQuiz function is called when the start button is clicked
-var startQuiz = function() {
+var countDown;
+function startQuiz() {
+  
   questionDiv.style.display = "block";
   quizCoverPg.style.display = "none";
 
   displayQuestion()
-  countDown; 
+  countDown = setInterval(function(){
+    if(timerCount <= 0)
+    {
+      endQuiz();
+      return
+    }
+    timerCount--;
+    timeRemain.textContent = timerCount;
+  }, 1000)
 }
 
 //Replacing the questions content in html with the array of questions in js
@@ -67,7 +77,7 @@ function answerClick (event) {
     timerCount -= 15;
   }
   questionIndex++;
-  if (timerCount < 0 || questionIndex > 4) {
+  if (timerCount <= 0 || questionIndex > 4) {
     endQuiz();
   }
   else {
@@ -77,43 +87,24 @@ function answerClick (event) {
 }
 //hide questions and display endQuiz pg when endQuiz fn is called
 function endQuiz () {
+  timeRemain.textContent = timerCount;
+  userScore.textContent = timerCount;
   questionDiv.style.display = "none";
   endQuizDiv.style.display = "block";
   clearInterval(countDown);
-  userScore.textContent = timerCount
-}
-
-//define variable time remain to decrease by 1 every second
-var countDown = setInterval(function(){
-  timerCount--;
-  timeRemain.textContent = timerCount;
-}, 1000) 
-
-//define function for startTimer
-function startTimer() {
- 
+  
 }
 
 //retrieve score & user initial and store in local storage
 submitInit.addEventListener("click", function() {
-
  
-  // var newScore = JSON.stringify(scoreRecord);
-  var prevScore = JSON.parse(localStorage.getItem("allScores"));
-  var pScore = prevScore ?prevScore.score:0
-  var scoreRecord = {
-    initial: userInit.value.trim(),
-    score: timerCount,
-  }; 
-  var scoreArray = [];
-  scoreArray.push(scoreRecord);
-  localStorage.setItem("allScores", JSON.stringify(scoreRecord));
-  
+  localStorage.setItem(userInit.value.trim(), timerCount);
+
+});
+
   
   // localStorage.setItem("highscore", JSON.stringify(scoreRecord))
   // printHighScore();
-});
-
 
 //paste user inital & their score on Highscores page
 // function printHighScore () {

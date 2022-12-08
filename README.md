@@ -4,7 +4,7 @@
 
 For this week's project, the developer is required to build a timed quiz, featuring multiple choice questions on the topics of coding. This application runs in the browser, and aims to simulate coding assessment that developer is likely to encounter as part of an interview process. In the process of building this application, developer can familiarize themselves with the materials covered in the coursework and learn to apply these skills in real world problems.
 
-You can access the application at https://github.com/Sandy5433/JS-timed-quiz
+You can access the application at https://sandy5433.github.io/JS-timed-quiz/
 
 
 ## Usage

@@ -7,7 +7,7 @@ function printHighScore() {
       for(var i =0 ;i< Object.keys(savedScore).length; i++)
       {
         var initials = Object.keys(savedScore)[i];
-         var score = savedScore[initials];
+        var score = savedScore[initials];
         var liTag = document.createElement("li");
         liTag.textContent = initials + ": " + score;
         var scoreList = document.querySelector(".score-list");
@@ -18,4 +18,13 @@ function printHighScore() {
   }
 
   printHighScore();
+  
+  var clearScoreBtn = document.querySelector("#clear-score")
+
+  clearScoreBtn.addEventListener("click", function(){
+    console.log("clear-score!")
+    localStorage.clear()
+  }  
+  )
+
   

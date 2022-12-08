@@ -102,21 +102,7 @@ submitInit.addEventListener("click", function() {
 
 });
 
-  
-  // localStorage.setItem("highscore", JSON.stringify(scoreRecord))
-  // printHighScore();
 
-//paste user inital & their score on Highscores page
-// function printHighScore () {
-//   var savedScore = JSON.parse(localStorage.getItem("highscore"))
-//   for (var i = 0; i < savedScore.length; i++) {
-//   var liTag = document.createElement("li");
-//   liTag.textContent = savedScore[i].initial + ": " + savedScore.score;
-//   scoreList.appendChild(liTag)
-//   }
-// }
-
-//Array of questions in the quiz
 var questions = [
  {
     title: 'Commonly used data types DO NOT include:',
